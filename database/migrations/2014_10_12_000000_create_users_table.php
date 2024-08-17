@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('avatar')->nullable();
             $table->date('birthday');
-            $table->string('gender');
+            $table->tinyInteger('gender');
             $table->string('address');
             $table->rememberToken();
             $table->timestamps();

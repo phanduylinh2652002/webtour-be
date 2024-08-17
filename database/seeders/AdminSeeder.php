@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +20,7 @@ class AdminSeeder extends Seeder
             'phone' => '0123456789',
             'avatar' => 'avatar.png',
             'birthday' => now(),
-            'gender' => 'male',
+            'gender' => 0,
             'address' => 'Ha Noi',
         ]);
     }
