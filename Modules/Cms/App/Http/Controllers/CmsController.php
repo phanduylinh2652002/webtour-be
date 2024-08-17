@@ -5,6 +5,7 @@ namespace Modules\Cms\App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CmsController extends Controller
 {
@@ -13,7 +14,7 @@ class CmsController extends Controller
      */
     public function index()
     {
-        return view('cms::index');
+        return Inertia::render('Index');
     }
 
     /**
