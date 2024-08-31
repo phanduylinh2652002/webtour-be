@@ -9,7 +9,7 @@ class CmsServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Cms';
 
-    protected string $moduleNameLower = 'cms';
+    protected string $moduleNameLower = 'Cms';
 
     /**
      * Boot the application events.
@@ -22,6 +22,7 @@ class CmsServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/migrations'));
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'Cms');
     }
 
     /**

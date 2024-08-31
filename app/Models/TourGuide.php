@@ -19,7 +19,7 @@ class TourGuide extends Model
 {
     use HasFactory;
 
-    protected $table = 'tour_guides';
+    protected $table = 'tour-guides';
 
     protected $fillable = [
         'name',
