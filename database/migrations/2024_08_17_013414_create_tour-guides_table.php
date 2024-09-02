@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('avatar')->nullable();
-            $table->date('birthday');
-            $table->tinyInteger('gender');
+            $table->date('birthday')->nullable();
+            $table->tinyInteger('gender')->nullable();
 
             $table->timestamps();
         });

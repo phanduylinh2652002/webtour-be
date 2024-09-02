@@ -25,20 +25,19 @@ class TourRequest extends FormRequest
     {
         return [
             //
-            'tour_id' => 'required',
-            'tour_name' => 'required',
-            'tour_price' => 'required',
-            'tour_discount' => 'required',
-            'tour_image' => 'sometimes|required_if:image, ""|image|max:2048',
-            'tour_place' => 'required',
-            'tour_vehicle' => 'required',
-            'tour_description' => 'required',
-            'tour_trip' => 'required',
-            'tour_locationStart' => 'required',
-            'tour_locationEnd' => 'required',
-            'tour_quantytiDate' => 'required',
-            'tour_dateStart' => 'required',
-            'tour_dateEnd' => 'required',
+            'id' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'discount' => 'required',
+            'image' => 'sometimes|required_if:image, ""|image|max:2048',
+            'place' => 'required',
+            'vehicles' => 'required',
+            'description' => 'required',
+            'trip' => 'required',
+            'place_id_start' => 'required',
+            'place_id_end' => 'required',
+            'quantity' => 'required',
+            'dateStart' => 'required',
             'category_id' => 'required',
             'tourGuide_id' => 'required'
         ];

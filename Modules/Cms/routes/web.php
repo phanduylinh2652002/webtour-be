@@ -7,6 +7,7 @@ use Modules\Cms\App\Http\Controllers\CategoryController;
 use Modules\Cms\App\Http\Controllers\CmsController;
 use Modules\Cms\App\Http\Controllers\ImageController;
 use Modules\Cms\App\Http\Controllers\PlaceController;
+use Modules\Cms\App\Http\Controllers\TourController;
 use Modules\Cms\App\Http\Controllers\TourGuideController;
 use Modules\Cms\App\Http\Controllers\VehicleController;
 
@@ -34,10 +35,8 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
     Route::resource('category', CategoryController::class)->names('category');
-    Route::resource('tour', 'TourController');
+    Route::resource('tour', TourController::class)->names('tour');
     Route::resource('tourguide', TourGuideController::class)->names('tourguide');
-    Route::resource('place', PlaceController::class)->names('place');
-    Route::resource('vehicle', VehicleController::class)->names('vehicle');
     Route::resource('account', 'AccountController');
     Route::resource('role', 'RoleController');
     Route::resource('customer', 'CustomerController');

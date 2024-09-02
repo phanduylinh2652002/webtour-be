@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
 <div style="min-height: 650px">
     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
@@ -11,16 +11,16 @@
         @csrf
         <div class="input-group input-group-outline my-3">
           <label class="form-label">Mã tour</label> <br>
-          <input type="text" class="form-control" name="tour_id">
+          <input type="text" class="form-control" name="id">
         </div>
-        @error('tour_id')
+        @error('id')
           <div class="text-danger">{{ $message }}</div>
         @enderror
         <div class="input-group input-group-outline my-3">
           <label class="form-label">Tên tour</label> <br>
-          <input type="text" class="form-control" name="tour_name">
+          <input type="text" class="form-control" name="name">
         </div>
-        @error('tour_name')
+        @error('name')
           <div class="text-danger">{{ $message }}</div>
         @enderror
         <div>
@@ -37,86 +37,86 @@
         @enderror
         <div class="input-group input-group-outline my-3">
             <label class="form-label">Giá tour</label>
-            <input type="text" class="form-control" name="tour_price">
+            <input type="text" class="form-control" name="price">
         </div>
-        @error('tour_price')
+        @error('price')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Giá giảm</label>
-            <input type="text" class="form-control" name="tour_discount">
+            <input type="text" class="form-control" name="discount">
           </div>
-        @error('tour_discount')
+        @error('discount')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div>
             <p >Ảnh</p>
-            <input type="file" name="tour_image">
+            <input type="file" name="image">
           </div>
-          @error('tour_image')
+          @error('image')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Các điểm đến</label>
-            <input type="text" class="form-control" name="tour_place">
+            <input type="text" class="form-control" name="place">
           </div>
-          @error('tour_place')
+          @error('place')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Phương tiện</label>
-            <input type="text" class="form-control" name="tour_vehicle">
+            <input type="text" class="form-control" name="vehicle">
           </div>
-          @error('tour_vehicle')
+          @error('vehicle')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Điểm khởi hành</label>
-            <input type="text" class="form-control" name="tour_locationStart">
+            <input type="text" class="form-control" name="locationStart">
           </div>
-          @error('tour_locationStart')
+          @error('locationStart')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Điểm kết thúc</label>
-            <input type="text" class="form-control" name="tour_locationEnd">
+            <input type="text" class="form-control" name="locationEnd">
           </div>
-          @error('tour_locationEnd')
+          @error('locationEnd')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Thời lượng chuyến đi</label>
-            <input type="text" class="form-control" name="tour_quantytiDate">
+            <input type="text" class="form-control" name="quantytiDate">
           </div>
-          @error('tour_quantytiDate')
+          @error('quantytiDate')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Ngày khởi hành</label>
-            <input type="text" class="form-control" name="tour_dateStart">
+            <input type="text" class="form-control" name="dateStart">
           </div>
-          @error('tour_dateStart')
+          @error('dateStart')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Ngày kết thúc</label>
-            <input type="text" class="form-control" name="tour_dateEnd">
+            <input type="text" class="form-control" name="dateEnd">
           </div>
-          @error('tour_dateEnd')
+          @error('dateEnd')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3" style="display: inline">
             <p>Mô tả</p>
-            <textarea type="text" class="form-control mt-5" name="tour_description"style="width: 100%;" id="tour_description"></textarea>
+            <textarea type="text" class="form-control mt-5" name="description"style="width: 100%;" id="description"></textarea>
           </div>
-          @error('tour_description')
+          @error('description')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div class="input-group input-group-outline my-3" style="display: inline">
             <p>Hành trình</p>
-            <textarea type="text" class="form-control mt-5" name="tour_trip"style="width: 100%;" id="tour_trip"></textarea>
+            <textarea type="text" class="form-control mt-5" name="trip"style="width: 100%;" id="trip"></textarea>
           </div>
-          @error('tour_trip')
+          @error('trip')
           <div class="text-danger">{{ $message }}</div>
         @enderror
           <div>
@@ -140,12 +140,12 @@
 @section('ckeditor')
     <script>
         ClassicEditor
-            .create(document.getElementById('tour_trip'))
+            .create(document.getElementById('trip'))
             .catch(error =>{
                 console.error(error);
             });
             ClassicEditor
-            .create(document.getElementById('tour_description'))
+            .create(document.getElementById('description'))
             .catch(error =>{
                 console.error(error);
             });

@@ -12,21 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tours', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->unique()->primary();
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('tour_guide_id');
-            $table->unsignedBigInteger('place_id_start');
-            $table->unsignedBigInteger('place_id_end');
             $table->string('name');
             $table->integer('price')->unsigned();
             $table->integer('discount')->unsigned()->nullable();
+            $table->string('image');
             $table->string('start_at');
             $table->integer('quantity')->unsigned();
             $table->longText('description');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('tour_guide_id')->references('id')->on('tour-guides')->onDelete('cascade');
-            $table->foreign('place_id_start')->references('id')->on('places')->onDelete('cascade');
-            $table->foreign('place_id_end')->references('id')->on('places')->onDelete('cascade');
+            $table->longText('trip');
+            $table->string('place');
+            $table->string('vehicle');
+            $table->string('locationStart');
+            $table->string('locationEnd');
+            $table->string('quantityDate');
+            $table->string('dateStart');
+            $table->string('dateEnd');
 
             $table->timestamps();
         });

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $tour_id
  * @property int $customer_id
- * @property int $user_id
+ * @property int $bill_id
  * @property int $price
  * @property int $discount
  * @property int $quantity_oldPerson
@@ -21,16 +21,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $date_end
  * @property string $note
  */
-class Order extends Model
+class BillDetail extends Model
 {
     use HasFactory;
 
-    protected $table = 'orders';
+    protected $table = 'bill-detail';
 
     protected $fillable = [
         'tour_id',
         'customer_id',
-        'user_id',
+        'bill_id',
         'price',
         'discount',
         'quantity_oldPerson',

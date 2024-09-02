@@ -66,7 +66,7 @@ class Tour extends Model
 
     public function orders(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(BillDetail::class);
     }
 
     public function images(): BelongsTo

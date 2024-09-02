@@ -37,22 +37,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white " href="{{route('place.index')}}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Quản lý Place</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white " href="{{route('vehicle.index')}}">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="fa-solid fa-car"></i>
-                        </div>
-                        <span class="nav-link-text ms-1">Quản lý Vehicle</span>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white " href="{{route('tourguide.index')}}">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-user-tie"></i>

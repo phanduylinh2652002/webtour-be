@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
     <div class="row" style="min-height: 650px">
         <div class="col-12">
@@ -14,7 +14,7 @@
                 <div class="card-body px-0 pb-2">
                     <div class="mt-2" style="margin-left: 15px">
                         <h4>Mã tour</h4>
-                        <span>{{$tours->tour_id}}</span>
+                        <span>{{$tours->id}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Loại tour</h4>
@@ -22,19 +22,19 @@
                     </div>
                     <div class="mt-2" style="margin-left: 15px">
                         <h4>Tên tour</h4>
-                        <span>{{$tours->tour_name}}</span>
+                        <span>{{$tours->name}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Ảnh tour</h4>
-                        <img src="{{URL::to('/')}}/images/{{$tours->tour_image}}" alt="" width="200px">
+                        <img src="{{URL::to('/')}}/images/{{$tours->image}}" alt="" width="200px">
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Giá tour</h4>
-                        <span>{{number_format($tours->tour_price)}} VNĐ</span>
+                        <span>{{number_format($tours->price)}} VNĐ</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Giá giảm</h4>
-                        <span>{{number_format($tours->tour_discount)}} VNĐ</span>
+                        <span>{{number_format($tours->discount)}} VNĐ</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Hướng dẫn viên</h4>
@@ -42,39 +42,39 @@
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Các điểm đến</h4>
-                        <span>{{$tours->tour_place}}</span>
+                        <span>{{$tours->place}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Phương tiện</h4>
-                        <span>{{$tours->tour_vehicle}}</span>
+                        <span>{{$tours->vehicle}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Điểm khởi hành</h4>
-                        <span>{{$tours->tour_locationStart}}</span>
+                        <span>{{$tours->locationStart}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Điểm đến</h4>
-                        <span>{{$tours->tour_locationEnd}}</span>
+                        <span>{{$tours->locationEnd}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Thời lượng tour</h4>
-                        <span>{{$tours->tour_quantytiDate}}</span>
+                        <span>{{$tours->quantytiDate}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Ngày khởi hành</h4>
-                        <span>{{$tours->tour_dateStart}}</span>
+                        <span>{{$tours->dateStart}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Ngày kết thúc</h4>
-                        <span>{{$tours->tour_dateEnd}}</span>
+                        <span>{{$tours->dateEnd}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Mô tả</h4>
-                        <span>{{$tours->tour_description}}</span>
+                        <span>{{$tours->description}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Hành trình</h4>
-                        <span>{{$tours->tour_trip}}</span>
+                        <span>{{$tours->trip}}</span>
                     </div>
                 </div>
             </div>

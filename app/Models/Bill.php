@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * @property int $order_id
+ * @property int $customer_id
  * @property int $total
  * @property string $date
  */
@@ -18,13 +18,14 @@ class Bill extends Model
     protected $table = 'bills';
 
     protected $fillable = [
-        'order_id',
+        'customer_id',
+        'user_id',
         'total',
         'date',
     ];
 
     public function order(): HasOne
     {
-        return $this->hasOne(Order::class);
+        return $this->hasOne(BillDetail::class);
     }
 }

@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
 <div style="min-height: 650px">
     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
@@ -7,16 +7,16 @@
             <a class="text-white" href="{{route('tour.index')}}">Quay lại</a>
         </button>
     </div>
-    <form role="form" class="text-start" action="{{route('tour.update', $tour->tour_id)}}" method="POST" enctype="multipart/form-data">
+    <form role="form" class="text-start" action="{{route('tour.update', $tour->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="input-group input-group-outline my-3">
           <label class="form-label">Mã tour</label> <br>
-          <input type="text" class="form-control" name="tour_id" value="{{$tour->tour_id}}">
+          <input type="text" class="form-control" name="id" value="{{$tour->id}}">
         </div>
         <div class="input-group input-group-outline my-3">
           <label class="form-label">Tên tour</label> <br>
-          <input type="text" class="form-control" name="tour_name" value="{{$tour->tour_name}}">
+          <input type="text" class="form-control" name="name" value="{{$tour->name}}">
         </div>
         <div>
           <p>Loại tour</p>
@@ -29,53 +29,53 @@
         </div>
         <div class="input-group input-group-outline my-3">
             <label class="form-label">Giá tour</label>
-            <input type="text" class="form-control" name="tour_price" value="{{$tour->tour_price}}">
+            <input type="text" class="form-control" name="price" value="{{$tour->price}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Giá giảm</label>
-            <input type="text" class="form-control" name="tour_discount" value="{{$tour->tour_discount}}">
+            <input type="text" class="form-control" name="discount" value="{{$tour->discount}}">
           </div>
           <div>
             <p >Ảnh</p>
-            <input type="file" name="tour_image"/>
-            <img src="{{ URL::to('/') }}/images/{{ $tour->tour_image }}" class="img-thumbnail" width="100" />
-            <input type="hidden" name="hidden_image" value="{{ $tour->tour_image }}" />
+            <input type="file" name="image"/>
+            <img src="{{ URL::to('/') }}/images/{{ $tour->image }}" class="img-thumbnail" width="100" />
+            <input type="hidden" name="hidden_image" value="{{ $tour->image }}" />
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Các điểm đến</label>
-            <input type="text" class="form-control" name="tour_place" value="{{$tour->tour_place}}">
+            <input type="text" class="form-control" name="place" value="{{$tour->place}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Phương tiện</label>
-            <input type="text" class="form-control" name="tour_vehicle" value="{{$tour->tour_vehicle}}">
+            <input type="text" class="form-control" name="vehicle" value="{{$tour->vehicle}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Điểm khởi hành</label>
-            <input type="text" class="form-control" name="tour_locationStart" value="{{$tour->tour_locationStart}}">
+            <input type="text" class="form-control" name="locationStart" value="{{$tour->locationStart}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Điểm kết thúc</label>
-            <input type="text" class="form-control" name="tour_locationEnd" value="{{$tour->tour_locationEnd}}">
+            <input type="text" class="form-control" name="locationEnd" value="{{$tour->locationEnd}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Thời lượng chuyến đi</label>
-            <input type="text" class="form-control" name="tour_quantytiDate" value="{{$tour->tour_quantytiDate}}">
+            <input type="text" class="form-control" name="quantytiDate" value="{{$tour->quantytiDate}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Ngày khởi hành</label>
-            <input type="text" class="form-control" name="tour_dateStart" value="{{$tour->tour_dateStart}}">
+            <input type="text" class="form-control" name="dateStart" value="{{$tour->dateStart}}">
           </div>
           <div class="input-group input-group-outline my-3">
             <label class="form-label">Ngày kết thúc</label>
-            <input type="text" class="form-control" name="tour_dateEnd" value="{{$tour->tour_dateEnd}}">
+            <input type="text" class="form-control" name="dateEnd" value="{{$tour->dateEnd}}">
           </div>
           <div class="input-group input-group-outline my-3" style="display: inline">
             <p>Mô tả</p>
-            <textarea type="text" class="form-control mt-5" name="tour_description"style="width: 100%;" id="tour_trip">{{$tour->tour_description}}</textarea>
+            <textarea type="text" class="form-control mt-5" name="description"style="width: 100%;" id="trip">{{$tour->description}}</textarea>
           </div>
           <div class="input-group input-group-outline my-3" style="display: inline">
             <p>Hành trình</p>
-            <textarea type="text" class="form-control mt-5" name="tour_trip"style="width: 100%;" id="tour_description">{{$tour->tour_trip}}</textarea>
+            <textarea type="text" class="form-control mt-5" name="trip"style="width: 100%;" id="description">{{$tour->trip}}</textarea>
           </div>
           <div>
             <p class="form-label">Hướng dẫn viên</p>
@@ -95,12 +95,12 @@
 @section('ckeditor')
     <script>
         ClassicEditor
-            .create(document.getElementById('tour_trip'))
+            .create(document.getElementById('trip'))
             .catch(error =>{
                 console.error(error);
             });
             ClassicEditor
-            .create(document.getElementById('tour_description'))
+            .create(document.getElementById('description'))
             .catch(error =>{
                 console.error(error);
             });

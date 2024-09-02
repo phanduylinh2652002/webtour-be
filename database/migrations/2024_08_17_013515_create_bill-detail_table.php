@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('bill_detail', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tour_id');
-            $table->unsignedBigInteger('user_id');
+            $table->string('tour_id');
+            $table->unsignedBigInteger('bill_id');
             $table->unsignedBigInteger('customer_id');
             $table->integer('price')->unsigned();
             $table->integer('discount')->unsigned()->nullable();
@@ -26,9 +26,6 @@ return new class extends Migration
             $table->date('date_end');
             $table->tinyInteger('status');
             $table->text('note')->nullable();
-            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
 
             $table->timestamps();
         });
