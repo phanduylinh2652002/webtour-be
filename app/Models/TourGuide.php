@@ -33,6 +33,6 @@ class TourGuide extends Model
 
     public function tours(): HasMany
     {
-        return $this->hasMany(Tour::class);
+        return $this->hasMany(Tour::class, 'tour_guide_id');
     }
 }

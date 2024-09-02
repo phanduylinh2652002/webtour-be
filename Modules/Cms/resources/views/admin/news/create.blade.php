@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
 <div style="min-height: 650px">
     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
@@ -11,15 +11,15 @@
         @csrf
         <div class="input-group input-group-outline my-3">
           <label class="form-label">Tên tin tức</label> <br>
-          <input type="text" class="form-control" name="new_name">
+          <input type="text" class="form-control" name="name">
         </div>
           <div>
             <p >Ảnh</p>
-            <input type="file" name="new_image">
+            <input type="file" name="image">
           </div>
           <div class="input-group input-group-outline my-3" style="display: inline">
             <p>Nội dung</p>
-            <textarea id="new_desc" type="text" class="form-control mt-5" name="new_description"style="height: 150px;"></textarea>
+            <textarea id="desc" type="text" class="form-control mt-5" name="description"style="height: 150px;"></textarea>
           </div>
         <div class="text-center">
           <button type="submit" class="btn bg-gradient-primary my-4 mb-2">Thêm mới</button>
@@ -30,7 +30,7 @@
 @section('ckeditor')
     <script>
         ClassicEditor
-            .create(document.getElementById('new_desc'))
+            .create(document.getElementById('desc'))
             .catch(error =>{
                 console.error(error);
             });

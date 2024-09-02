@@ -38,7 +38,7 @@
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Hướng dẫn viên</h4>
-                        <span>{{$tourGuide->tourGuide_name}}</span>
+                        <span>{{$tourGuide->name}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Các điểm đến</h4>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Thời lượng tour</h4>
-                        <span>{{$tours->quantytiDate}}</span>
+                        <span>{{$tours->quantityDate}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Ngày khởi hành</h4>

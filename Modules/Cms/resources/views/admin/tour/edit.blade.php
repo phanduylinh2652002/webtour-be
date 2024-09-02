@@ -23,7 +23,7 @@
           <select name="category_id" class="form-control border">
             <option value="">Chọn loại tour</option>
             @foreach($categories as $c)
-            <option value="{{ $c->category_id }}" @if($tour->category_id === $c->category_id) selected @endif>{{ $c->category_name }}</option>
+            <option value="{{ $c->id }}" @if($tour->category_id === $c->id) selected @endif>{{ $c->name }}</option>
             @endforeach
           </select>
         </div>
@@ -82,7 +82,7 @@
             <select name="tourGuide_id" class="form-control border">
                 <option>Chọn hướng dẫn viên</option>
                 @foreach($tourguide as $tg)
-                    <option value="{{$tg->tourGuide_id}}" @if ($tour->tourGuide_id == $tg->tourGuide_id) selected @endif>{{$tg->tourGuide_name}}</option>
+                    <option value="{{$tg->id}}" @if ($tour->tour_guide_id == $tg->id) selected @endif>{{$tg->name}}</option>
                 @endforeach
             </select>
           </div>

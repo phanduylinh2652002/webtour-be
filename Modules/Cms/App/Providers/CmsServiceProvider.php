@@ -2,6 +2,7 @@
 
 namespace Modules\Cms\App\Providers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,7 @@ class CmsServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/migrations'));
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'Cms');
+        Paginator::useBootstrapFive();
     }
 
     /**

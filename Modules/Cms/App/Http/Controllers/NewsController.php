@@ -3,13 +3,15 @@
 namespace Modules\Cms\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\NewsRequest;
+use App\Models\News;
+use Modules\Cms\App\Http\Requests\NewsRequest;
+
 class NewsController extends Controller
 {
     //
     public function index(){
-        $news = News::paginate(5);
-        return view('admin.news.index', compact('news'));
+        $news = News::paginate(10);
+        return view('Cms::admin.news.index', compact('news'));
     }
     public function create(){
         return view('admin.news.create');
@@ -28,10 +30,10 @@ class NewsController extends Controller
     }
     public function show($id) {
         $news = News::findOrFail($id);
-        return view('admin.news.detail', compact('news'));
+        return view('Cms::admin.news.detail', compact('news'));
     }
     public function edit(News $news) {
-        return view('admin.news.edit', compact('news'));
+        return view('Cms::admin.news.edit', compact('news'));
     }
     public function update(News $news, NewsRequest $request) {
         $image = $request->file('new_image');

@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
     <div class="row"  style="height: 650px">
         <div class="col-12">
@@ -28,19 +28,19 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">{{$r->role_id}}</h6>
+                              <h6 class="mb-0 text-sm">{{$r->id}}</h6>
                             </div>
                           </div>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{$r->role_name}}</p>
+                          <p class="text-xs font-weight-bold mb-0">{{$r->name}}</p>
                         </td>
                         <td class="align-middle text-center text-sm d-flex justify-content-center">
-                          <a href="{{route('role.edit', $r->role_id)}}" class="btn btn-primary">Sửa</a>
-                          <form action="{{route('role.destroy', $r->role_id)}}" method="post" style="margin-left: 5px">
+                          <a href="{{route('role.edit', $r->id)}}" class="btn btn-primary">Sửa</a>
+                          <form action="{{route('role.destroy', $r->id)}}" method="post" style="margin-left: 5px">
                             @method('DELETE')
                             @csrf
-                          <button  type="submit" class="btn btn-primary" 
+                          <button  type="submit" class="btn btn-primary"
                             onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
                             >Xóa</button>
                           </form>

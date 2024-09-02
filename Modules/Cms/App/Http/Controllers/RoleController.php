@@ -3,27 +3,27 @@
 namespace Modules\Cms\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
-use App\Model\Role;
 class RoleController extends Controller
 {
     //
     public function index(){
         $role = Role::all();
-        return view('admin.role.index', compact('role'));
+        return view('Cms::admin.role.index', compact('role'));
     }
     public function create(){
-        return view('admin.role.create');
+        return view('Cms::admin.role.create');
     }
     public function store(Request $request){
-        $role = Role::query()->create([
-            'role_name' => $request->role_name
+        Role::query()->create([
+            'name' => $request->name
         ]);
         return redirect()->route('role.index');
     }
     public function edit($id){
         $role = Role::findOrFail($id);
-        return view('admin.role.edit', compact('role'));
+        return view('Cms::admin.role.edit', compact('role'));
     }
     public function update($id, Request $request){
         $role = Role::findOrFail($id);

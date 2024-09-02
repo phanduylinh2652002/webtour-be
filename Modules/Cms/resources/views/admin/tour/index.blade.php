@@ -32,7 +32,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">{{$i->id}}</h6>
+                              <h6 class="mb-0 text-sm">{{ $i->id }}</h6>
                             </div>
                           </div>
                         </td>
@@ -43,10 +43,10 @@
                             <p class="text-xs font-weight-bold mb-0"  style="text-align: center;">{{number_format($i->price)}}</p>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0" style="text-align: center;">{{$i->tourGuide_name}}</p>
+                            <p class="text-xs font-weight-bold mb-0" style="text-align: center;">{{$i->guide?->name}}</p>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0" style="text-align: center;">{{$i->quantytiDate}}</p>
+                            <p class="text-xs font-weight-bold mb-0" style="text-align: center;">{{$i->quantityDate}}</p>
                         </td>
                         <td class="align-middle text-center text-sm d-flex justify-content-center">
                           <a href="{{route('tour.show', $i->id)}}" class="btn btn-primary" style="margin-right: 5px">Xem</a>
@@ -63,7 +63,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-center mt-1">
+                <div class="mt-1 ms-3 me-3">
                   {{$tours->links()}}
                 </div>
               </div>

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('tour_guide_id');
             $table->string('name');
-            $table->integer('price')->unsigned();
-            $table->integer('discount')->unsigned()->nullable();
+            $table->bigInteger('price')->unsigned();
+            $table->bigInteger('discount')->unsigned()->nullable();
             $table->string('image');
             $table->string('start_at');
             $table->integer('quantity')->unsigned();

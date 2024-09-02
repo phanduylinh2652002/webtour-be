@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
     <div class="row"  style="height: 650px">
         <div class="col-12">
@@ -30,23 +30,23 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm">{{$n->new_id}}</h6>
+                              <h6 class="mb-0 text-sm">{{$n->id}}</h6>
                             </div>
                           </div>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{$n->new_name}}</p>
+                          <p class="text-xs font-weight-bold mb-0">{{$n->name}}</p>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0" style="text-align: center;">{{date('d-m-Y', strtotime($n->new_date))}}</p>
+                            <p class="text-xs font-weight-bold mb-0" style="text-align: center;">{{date('d-m-Y', strtotime($n->date))}}</p>
                         </td>
                         <td class="align-middle text-center text-sm d-flex justify-content-center">
-                          <a href="{{route('news.show', $n->new_id)}}" class="btn btn-primary" style="margin-right: 5px">Xem</a>
-                          <a href="{{route('news.edit', $n->new_id)}}" class="btn btn-primary">Sửa</a>
-                          <form action="{{route('news.destroy', $n->new_id)}}" method="post" style="margin-left: 5px">
+                          <a href="{{route('news.show', $n->id)}}" class="btn btn-primary" style="margin-right: 5px">Xem</a>
+                          <a href="{{route('news.edit', $n->id)}}" class="btn btn-primary">Sửa</a>
+                          <form action="{{route('news.destroy', $n->id)}}" method="post" style="margin-left: 5px">
                             @method('DELETE')
                             @csrf
-                          <button  type="submit" class="btn btn-primary" 
+                          <button  type="submit" class="btn btn-primary"
                             onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
                             >Xóa</button>
                           </form>

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
+ * @property string $id
  * @property int $category_id
  * @property int $tour_guide_id
  * @property int $place_id_start
@@ -25,18 +26,27 @@ class Tour extends Model
     use HasFactory;
 
     protected $table = 'tours';
+    protected $primaryKey = "id";
+    protected $keyType = "string";
 
     protected $fillable = [
-        'category_id',
-        'tour_guide_id',
-        'place_id_start',
-        'place_id_end',
+        'id',
         'name',
         'price',
         'discount',
-        'start_at',
-        'quantity',
         'description',
+        'trip',
+        'image',
+        'place',
+        'vehicle',
+        'locationStart',
+        'locationEnd',
+        'quantytiDate',
+        'dateStart',
+        'dateEnd',
+        'quantityPerson',
+        'category_id',
+        'tour_guide_id'
     ];
 
     public function category(): BelongsTo
@@ -44,33 +54,13 @@ class Tour extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function vehicles(): BelongsToMany
-    {
-        return $this->belongsToMany(Vehicle::class, 'tour_vehicle', 'vehicle_id', 'tour_id');
-    }
-
-    public function placeStart(): BelongsTo
-    {
-        return $this->belongsTo(Place::class, 'place_id_start');
-    }
-
-    public function placeEnd(): BelongsTo
-    {
-        return $this->belongsTo(Place::class, 'place_id_end');
-    }
-
     public function guide(): BelongsTo
     {
-        return $this->belongsTo(TourGuide::class);
+        return $this->belongsTo(TourGuide::class, 'tour_guide_id');
     }
 
     public function orders(): HasMany
     {
         return $this->hasMany(BillDetail::class);
-    }
-
-    public function images(): BelongsTo
-    {
-        return $this->belongsTo(Image::class);
     }
 }

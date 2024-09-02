@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
 <div style="height: 650px">
     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between">
@@ -11,7 +11,7 @@
         @csrf
         <div class="input-group input-group-outline my-3">
           <label class="form-label">Tên role</label>
-          <input type="text" class="form-control" name="role_name">
+          <input type="text" class="form-control" name="name">
         </div>
         <div class="text-center">
           <button type="submit" class="btn bg-gradient-primary my-4 mb-2">Thêm mới</button>

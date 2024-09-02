@@ -31,37 +31,38 @@ class TourRequest extends FormRequest
             'discount' => 'required',
             'image' => 'sometimes|required_if:image, ""|image|max:2048',
             'place' => 'required',
-            'vehicles' => 'required',
+            'vehicle' => 'required',
             'description' => 'required',
             'trip' => 'required',
-            'place_id_start' => 'required',
-            'place_id_end' => 'required',
-            'quantity' => 'required',
+            'locationStart' => 'required',
+            'locationEnd' => 'required',
+            'quantityDate' => 'required',
             'dateStart' => 'required',
+            'dateEnd' => 'required',
             'category_id' => 'required',
-            'tourGuide_id' => 'required'
+            'tour_guide_id' => 'required'
         ];
     }
 
     public function message()
     {
         return [
-            'tour_id' => 'Mã tour không được để trống',
-            'tour_name' => 'Tên tour không được để trống',
-            'tour_price' => 'Giá tour không được để trống',
-            'tour_discount' => 'Giá giảm không được để trống',
-            'tour_image' => 'Hình ảnh không được để trống',
-            'tour_place' => 'Điểm đến không được để trống',
-            'tour_vehicle' => 'Phương tiện không được để trống',
-            'tour_description' => 'Mô tả không được để trống',
-            'tour_trip' => 'Hành trình không được để trống',
-            'tour_locationStart' => 'Điểm khởi hành không được để trống',
-            'tour_locationEnd' => 'Điểm kết thúc không được để trống',
-            'tour_quantytiDate' => 'Thời lượng chuyến đi không được để trống',
-            'tour_dateStart' => 'Ngày khởi hành không được để trống',
-            'tour_dateEnd' => 'Ngày kết thúc không được để trống',
+            'id' => 'Mã tour không được để trống',
+            'name' => 'Tên tour không được để trống',
+            'price' => 'Giá tour không được để trống',
+            'discount' => 'Giá giảm không được để trống',
+            'image' => 'Hình ảnh không được để trống',
+            'place' => 'Điểm đến không được để trống',
+            'vehicle' => 'Phương tiện không được để trống',
+            'description' => 'Mô tả không được để trống',
+            'trip' => 'Hành trình không được để trống',
+            'locationStart' => 'Điểm khởi hành không được để trống',
+            'locationEnd' => 'Điểm kết thúc không được để trống',
+            'quantityDate' => 'Thời lượng chuyến đi không được để trống',
+            'dateStart' => 'Ngày khởi hành không được để trống',
+            'dateEnd' => 'Ngày kết thúc không được để trống',
             'category_id' => 'Loại tour không được để trống',
-            'tourGuide_id' => 'Hướng dẫn viên không được để trống'
+            'tour_guide_id' => 'Hướng dẫn viên không được để trống'
         ];
     }
 }
