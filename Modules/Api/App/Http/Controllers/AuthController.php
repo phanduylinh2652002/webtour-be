@@ -33,7 +33,8 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'access_token' => JWTAuth::fromUser($user)
+            'access_token' => JWTAuth::fromUser($user),
+            'user' => $user
         ]);
     }
 
@@ -52,9 +53,12 @@ class AuthController extends Controller
             'role_id' => $data['role_id'],
         ]);
 
+        $token = auth()->login($user);
+
         return response()->json([
             'success' => true,
-            'data' => $user
+            'user' => $user,
+            'token' => $token
         ], 201);
     }
 
