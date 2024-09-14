@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * @property string $name
@@ -19,7 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property int $gender
  * @property int $role_id
  */
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -36,7 +37,7 @@ class User extends Authenticatable
         'avatar',
         'birthday',
         'gender',
-        'role_id'
+        'role_id',
     ];
 
     /**
@@ -61,5 +62,15 @@ class User extends Authenticatable
     public function orders(): HasMany
     {
         return $this->hasMany(BillDetail::class);
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }
