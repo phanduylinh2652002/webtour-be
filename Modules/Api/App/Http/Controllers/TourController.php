@@ -36,16 +36,19 @@ class TourController extends Controller
     }
 
     /**
-     * @param $id
+     * @param string $id
      * @return JsonResponse
      */
-    public function show($id): JsonResponse
+    public function show(string $id): JsonResponse
     {
         $tour = Tour::query()->with(['category', 'guide'])->find($id);
+        $category_id = $tour->category->id;
+        $tour_relate = Tour::query()->with(['category', 'guide'])->where('category_id', $category_id)->get();
 
         return response()->json([
             'success' => true,
-            'data' => $tour
+            'data' => $tour,
+            'tour_relate' => $tour_relate,
         ]);
     }
 
