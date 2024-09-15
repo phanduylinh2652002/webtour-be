@@ -26,6 +26,6 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::post('register', [AuthController::class, 'register'])->name('register');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth:api');
 
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/tour', [HomeController::class, 'index'])->name('home');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 });
