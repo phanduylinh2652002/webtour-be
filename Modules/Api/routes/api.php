@@ -28,4 +28,7 @@ Route::prefix('v1')->name('api.')->group(function () {
 
     Route::get('/tour', [HomeController::class, 'index'])->name('home');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
+    Route::get('/limitTours', [HomeController::class, 'limitTours'])->name('limitTours');
+    Route::get('/info', [HomeController::class, 'info'])->name('info');
+    Route::get('/tourDomestic', [HomeController::class, 'tourDomestic'])->name('tourDomestic');
 });
