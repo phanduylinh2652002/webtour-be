@@ -56,4 +56,15 @@ class HomeController extends Controller
 
         return response()->json($tour);
     }
+
+    public function tourEu()
+    {
+        $tour = Tour::where('category_id', '3')->limit(4)->get();
+        $tour->map(function ($tour) {
+            $tour->image = url('images/' . $tour->image);
+            return $tour;
+        });
+
+        return response()->json($tour);
+    }
 }
