@@ -42,6 +42,7 @@ class TourController extends Controller
     public function show(string $id): JsonResponse
     {
         $tour = Tour::query()->with(['category', 'guide'])->find($id);
+        $tour->image = url('images/' . $tour->image);
         $category_id = $tour->category->id;
         $tour_relate = Tour::query()->with(['category', 'guide'])->where('category_id', $category_id)->get();
 
