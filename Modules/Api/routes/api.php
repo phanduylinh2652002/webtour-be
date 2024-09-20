@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Api\App\Http\Controllers\AuthController;
 use Modules\Api\App\Http\Controllers\CategoryController;
 use Modules\Api\App\Http\Controllers\HomeController;
+use Modules\Api\App\Http\Controllers\NewsControllerControllerApi;
 use Modules\Api\App\Http\Controllers\TourController;
 
 /*
@@ -36,4 +37,5 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::get('/tourEu', [HomeController::class, 'tourEu'])->name('tourEu');
 
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.detail');
+    Route::get('/news', [NewsControllerControllerApi::class, 'index'])->name('news');
 });
