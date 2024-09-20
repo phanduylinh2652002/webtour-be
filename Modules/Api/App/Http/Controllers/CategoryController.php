@@ -19,4 +19,11 @@ class CategoryController extends Controller
 
         return response()->json($categories);
     }
+
+    public function show($id)
+    {
+        $category = Category::query()->with('tours')->find($id);
+
+        return response()->json($category);
+    }
 }
