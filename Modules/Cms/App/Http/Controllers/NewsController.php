@@ -19,7 +19,7 @@ class NewsController extends Controller
     public function store(NewsRequest $request){
         $image = $request->file('new_image');
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('news/images'), $new_name);
+        $image->move(public_path('images'), $new_name);
         News::query()->create([
             'new_name' => $request->new_name,
             'new_image' => $new_name,
@@ -38,7 +38,7 @@ class NewsController extends Controller
     public function update(News $news, NewsRequest $request) {
         $image = $request->file('new_image');
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('news/images'), $new_name);
+        $image->move(public_path('images'), $new_name);
         $form_data = array(
             'new_name' => $request->new_name,
             'new_image' => $new_name,
