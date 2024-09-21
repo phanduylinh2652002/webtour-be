@@ -4,9 +4,6 @@ namespace Modules\Api\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class NewsControllerControllerApi extends Controller
 {
@@ -26,12 +23,7 @@ class NewsControllerControllerApi extends Controller
 
     public function show($id) {
         $news = News::find($id);
-
-        if (!$news) {
-            return response()->json([
-                'message' => 'News not found'
-            ], 404);
-        }
+        $news->image = url('images/' . $news->image);
 
         return response()->json([
             'data' => $news
