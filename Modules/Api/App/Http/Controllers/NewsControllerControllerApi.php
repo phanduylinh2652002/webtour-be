@@ -23,4 +23,18 @@ class NewsControllerControllerApi extends Controller
 
         return response()->json($news);
     }
+
+    public function show($id) {
+        $news = News::find($id);
+
+        if (!$news) {
+            return response()->json([
+                'message' => 'News not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'data' => $news
+        ], 200);
+    }
 }

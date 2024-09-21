@@ -30,4 +30,5 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::get('/tour', [HomeController::class, 'index'])->name('home');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/news', [NewsControllerControllerApi::class, 'index'])->name('news');
+    Route::get('/news/{id}', [NewsControllerControllerApi::class, 'show'])->name('news.show');
 });
