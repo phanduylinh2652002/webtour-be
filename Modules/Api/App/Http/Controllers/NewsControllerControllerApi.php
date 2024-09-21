@@ -23,4 +23,13 @@ class NewsControllerControllerApi extends Controller
 
         return response()->json($news);
     }
+
+    public function show($id) {
+        $news = News::find($id);
+        $news->image = url('images/' . $news->image);
+
+        return response()->json([
+            'data' => $news
+        ], 200);
+    }
 }
