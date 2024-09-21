@@ -23,6 +23,10 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::query()->with('tours')->find($id);
+        $category->tours->map(function($tour) {
+            $tour->image = url('images/' . $tour->image);
+            return $tour;
+        });
 
         return response()->json($category);
     }

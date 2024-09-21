@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
     <div class="row"  style="height: 650px">
         <div class="col-12">

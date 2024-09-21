@@ -3,18 +3,20 @@
 namespace Modules\Cms\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bill;
+
 class BillController extends Controller
 {
     //
     public function index(){
-        $bill = Bill::leftjoin('customers', 'customers.customer_id', 'bill.customer_id')
+        $bill = Bill::leftjoin('customers', 'customers.id', 'bills.customer_id')
         ->select(
-            'bill.bill_id',
-            'customers.customer_name',
-            'bill.bill_date',
-            'bill.bill_total'
+            'bills.id',
+            'customers.name',
+            'bills.date',
+            'bills.total'
         )->get();
-        return view('admin.bill.index', compact('bill'));
+        return view('Cms::admin.bill.index', compact('bill'));
     }
     public function detail($id){
         $bills = Bill::findOrFail($id);

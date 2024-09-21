@@ -12,9 +12,9 @@ class CustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|unique:customers',
-            'name' => 'required|min:8',
-            'phone' => 'required|min:8',
+            'tour' => 'required',
+            'user' => 'required',
+            'customer' => 'required',
         ];
     }
 

@@ -25,7 +25,7 @@ class BillDetail extends Model
 {
     use HasFactory;
 
-    protected $table = 'bill-detail';
+    protected $table = 'bill_detail';
 
     protected $fillable = [
         'tour_id',
