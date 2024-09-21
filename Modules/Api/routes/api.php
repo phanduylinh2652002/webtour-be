@@ -35,6 +35,7 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::get('/info', [HomeController::class, 'info'])->name('info');
     Route::get('/tourDomestic', [HomeController::class, 'tourDomestic'])->name('tourDomestic');
     Route::get('/tourEu', [HomeController::class, 'tourEu'])->name('tourEu');
+    Route::post('/bookTour', [TourController::class, 'bookTour'])->name('bookTour')->middleware('auth:api');
 
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.detail');
     Route::get('/news', [NewsControllerControllerApi::class, 'index'])->name('news');
