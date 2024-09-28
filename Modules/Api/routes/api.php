@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Modules\Api\App\Http\Controllers\ApiPaymentController;
 use Modules\Api\App\Http\Controllers\AuthController;
 use Modules\Api\App\Http\Controllers\CategoryController;
 use Modules\Api\App\Http\Controllers\HomeController;
@@ -40,4 +41,7 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.detail');
     Route::get('/news', [NewsControllerControllerApi::class, 'index'])->name('news');
     Route::get('/news/{id}', [NewsControllerControllerApi::class, 'show'])->name('news.show');
+
+    Route::get('/paid', [ApiPaymentController::class, 'paid'])->name('payment.paid')->middleware('auth:api');
+    Route::get('/unpaid', [ApiPaymentController::class, 'unpaid'])->name('payment.unpaid')->middleware('auth:api');
 });
