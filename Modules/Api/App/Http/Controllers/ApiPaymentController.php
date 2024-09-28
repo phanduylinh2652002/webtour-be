@@ -37,7 +37,7 @@ class ApiPaymentController extends Controller
 
     public function unpaid()
     {
-        $user = auth()->user();
+        $user = Auth::user();
 
         if (!$user) {
             return response()->json([
