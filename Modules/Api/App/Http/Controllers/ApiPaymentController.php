@@ -4,6 +4,7 @@ namespace Modules\Api\App\Http\Controllers;
 
 use App\Enums\Status;
 use App\Http\Controllers\Controller;
+use App\Models\Bill;
 use App\Models\BillDetail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -25,14 +26,15 @@ class ApiPaymentController extends Controller
             ], 401);
         }
 
-        $bills = BillDetail::where('customer_id', $user->id)
-            ->where('status', Status::CHECK_OUT->value)
+        $bills = Bill::query()->with(['order', 'order.tour'])
+            ->where('user_id', $user->id)
+            ->whereHas('order', function ($query) {
+                return $query->where('status', Status::CHECK_OUT->value);
+            })
+            ->orderByDesc('updated_at')
             ->get();
 
-        return response()->json([
-            'message' => 'Success',
-            'data' => $bills
-        ]);
+        return response()->json($bills);
     }
 
     public function unpaid()
@@ -45,13 +47,14 @@ class ApiPaymentController extends Controller
             ], 401);
         }
 
-        $bills = BillDetail::where('customer_id', $user->id)
-            ->where('status', Status::PENDING->value)
+        $bills = Bill::query()->with(['order', 'order.tour'])
+            ->where('user_id', $user->id)
+            ->whereHas('order', function ($query) {
+                return $query->where('status', '!=', Status::CHECK_OUT->value);
+            })
+            ->orderByDesc('updated_at')
             ->get();
 
-        return response()->json([
-            'message' => 'Success',
-            'data' => $bills
-        ]);
+        return response()->json($bills);
     }
 }
