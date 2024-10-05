@@ -57,4 +57,14 @@ class ApiPaymentController extends Controller
 
         return response()->json($bills);
     }
+
+    public function cancel(Request $request)
+    {
+        $bill = Bill::query()->with('order')->findOrFail($request->id);
+        $bill->order->update(['status' => Status::CANCEL->value]);
+
+        return response()->json([
+            'success' => true,
+        ]);
+    }
 }
