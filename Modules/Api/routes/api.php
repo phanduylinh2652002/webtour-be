@@ -30,6 +30,7 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth:api');
 
     Route::get('/tour', [HomeController::class, 'index'])->name('home');
+    Route::get('/search', [TourController::class, 'search'])->name('search');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/tour/{id}', [TourController::class, 'show'])->name('tour.detail');
     Route::get('/limitTours', [HomeController::class, 'limitTours'])->name('limitTours');

@@ -18,6 +18,19 @@ use Modules\Api\App\Http\Requests\CustomerRequest;
 
 class TourController extends Controller
 {
+    public function search(Request $request)
+    {
+        $tours = Tour::query()
+        ->where('name', 'LIKE', "%{$request->searchKey}%")
+        ->get();
+
+        $tours->map(function ($tour) {
+            $tour->image = url('images/' . $tour->image);
+            return $tour;
+        });
+
+        return response()->json($tours);
+    }
 
     /**
      * @param string $id
