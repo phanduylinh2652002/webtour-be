@@ -54,10 +54,16 @@
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Họ và tên" />
+                                @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Email" />
+                                @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
@@ -66,6 +72,9 @@
                             <div class="form-group">
                                 <label for="password-confirm"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" id="password-confirm" placeholder="Nhập lại mật khẩu" name="password_confirmation" required autocomplete="new-password"/>
+                                @error('password')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="invalid-feedback">Mật khẩu không khớp.</div>
                             <div class="form-group form-button">

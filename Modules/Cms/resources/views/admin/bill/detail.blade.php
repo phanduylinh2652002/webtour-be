@@ -14,27 +14,27 @@
                 <div class="card-body px-0 pb-2">
                     <div class="mt-2" style="margin-left: 15px">
                         <h4>Mã hóa đơn</h4>
-                        <span>{{$bills->bill_id}}</span>
+                        <span>{{$bills->id}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Tên khách hàng</h4>
-                        <span>{{$billDetails->customer_name}}</span>
+                        <span>{{$billDetails->name}}</span>
                     </div>
                     <div class="mt-2" style="margin-left: 15px">
                         <h4>Email</h4>
-                        <span>{{$billDetails->customer_email}}</span>
+                        <span>{{$billDetails->email}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Số điện thoại</h4>
-                        <span>{{$billDetails->customer_phone}}</span>
+                        <span>{{$billDetails->phone}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Tên tour</h4>
-                        <span>{{$billDetails->tour_name}}</span>
+                        <span>{{$billDetails->name}}</span>
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Ảnh tour</h4>
-                        <img src="{{URL::to('/')}}/images/{{$billDetails->tour_image}}" alt="" width="200px">
+                        <img src="{{URL::to('/')}}/images/{{$billDetails->image}}" alt="" width="200px">
                     </div>
                     <div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Người lớn</h4>
@@ -62,11 +62,11 @@
                         @endif
                     </div><div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Tổng hóa đơn</h4>
-                        <span>{{number_format($bills->bill_total)}} VND</span>
+                        <span>{{number_format($bills->total)}} VND</span>
                     </div>
                 </div><div class="info_group mt-2" style="margin-left: 15px">
                     <h4>Ngày thanh toán</h4>
-                    <span>{{$bills->bill_date}}</span>
+                    <span>{{$bills->date}}</span>
                 </div>
                     </div><div class="info_group mt-2" style="margin-left: 15px">
                         <h4>Ghi chú</h4>

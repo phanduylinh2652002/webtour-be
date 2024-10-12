@@ -67,4 +67,13 @@ class ApiPaymentController extends Controller
             'success' => true,
         ]);
     }
+
+    public function detailOrder($id)
+    {
+        $bill = Bill::query()
+            ->with(['order.tour.guide', 'order.customer'])
+            ->findOrFail($id);
+
+        return response()->json($bill);
+    }
 }

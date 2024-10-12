@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('Cms::admin.admin')
 @section('content')
     <div class="row"  style="height: 650px">
         <div class="col-12">
@@ -27,24 +27,24 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div class="d-flex flex-column justify-content-center">
-                              <h6 class="mb-0 text-sm" style="padding-left: 35px">{{$c->customer_id}}</h6>
+                              <h6 class="mb-0 text-sm" style="padding-left: 35px">{{$c->id}}</h6>
                             </div>
                           </div>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{$c->customer_name}}</p>
+                          <p class="text-xs font-weight-bold mb-0">{{$c->name}}</p>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0">{{$c->customer_phone}}</p>
+                            <p class="text-xs font-weight-bold mb-0">{{$c->phone}}</p>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0">{{$c->customer_email}}</p>
+                            <p class="text-xs font-weight-bold mb-0">{{$c->email}}</p>
                         </td>
                         <td class="align-middle text-center text-sm d-flex justify-content-center">
-                          <form action="{{route('customer.destroy', $c->customer_id)}}" method="post" style="margin-left: 5px">
+                          <form action="{{route('customer.destroy', $c->id)}}" method="post" style="margin-left: 5px">
                           @method('DELETE')
                           @csrf
-                          <button  type="submit" class="btn btn-primary" 
+                          <button  type="submit" class="btn btn-primary"
                             onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
                             >Xóa</button>
                           </form>

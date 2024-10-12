@@ -5,11 +5,8 @@ use Modules\Cms\App\Http\Controllers\Auth\LoginController;
 use Modules\Cms\App\Http\Controllers\Auth\RegisterController;
 use Modules\Cms\App\Http\Controllers\CategoryController;
 use Modules\Cms\App\Http\Controllers\CmsController;
-use Modules\Cms\App\Http\Controllers\ImageController;
-use Modules\Cms\App\Http\Controllers\PlaceController;
 use Modules\Cms\App\Http\Controllers\TourController;
 use Modules\Cms\App\Http\Controllers\TourGuideController;
-use Modules\Cms\App\Http\Controllers\VehicleController;
 
 /*
 |--------------------------------------------------------------------------

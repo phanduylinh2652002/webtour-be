@@ -52,4 +52,9 @@ class BillDetail extends Model
     {
         return $this->belongsTo(Tour::class);
     }
+
+    public function customer(): BelongsTo
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

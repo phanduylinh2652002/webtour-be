@@ -47,4 +47,5 @@ Route::prefix('v1')->name('api.')->group(function () {
     Route::get('/paid', [ApiPaymentController::class, 'paid'])->name('payment.paid')->middleware('auth:api');
     Route::get('/unpaid', [ApiPaymentController::class, 'unpaid'])->name('payment.unpaid')->middleware('auth:api');
     Route::post('/cancel', [ApiPaymentController::class, 'cancel'])->name('payment.cancel')->middleware('auth:api');
+    Route::get('/detailOrder/{id}', [ApiPaymentController::class, 'detailOrder'])->name('payment.detailOrder')->middleware('auth:api');
 });
